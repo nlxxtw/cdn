@@ -20,7 +20,7 @@ function welcome() {
       swal({
         title: " 欢迎关注公众号学习帮pro！",
         text: welcome_text + '\n欢迎来自' + locationInfo + '的用户！\n获取更多资源请扫码关注！',
-        imageUrl: "https://cdn.jsdelivr.net/gh/nlxxtw/cdn@V-1.0/gzh.png",
+        imageUrl: "/gzh.png",
         showConfirmButton: true
       }).then((result) => {
         if (result.isConfirmed) {
