@@ -2,8 +2,9 @@ function welcome() {
   let welcome_text = '欢迎光顾本网站~';
   let lastVisitTime = localStorage.getItem('lastVisitTime');
   let currentTime = new Date().getTime();
-  
-  if (!lastVisitTime || (currentTime - lastVisitTime > 120000)) {
+  let hasBeenWelcomed = localStorage.getItem('hasBeenWelcomed');
+
+  if (!hasBeenWelcomed && (!lastVisitTime || (currentTime - lastVisitTime > 120000))) {
     if (document.referrer !== '') {
       let referrer = document.referrer.split("/")[2];
       welcome_text = "欢迎你，来自" + referrer.toUpperCase() + "的朋友！";
@@ -20,13 +21,13 @@ function welcome() {
       swal({
         title: " 欢迎关注公众号学习帮pro！",
         text: welcome_text + '\n欢迎来自' + locationInfo + '的用户！\n获取更多资源请扫码关注！',
-        imageUrl: "/gzh.png",
+        imageUrl: "https://cdn.jsdelivr.net/gh/nlxxtw/cdn@main/gzh.png",
         showConfirmButton: true
       }).then((result) => {
         if (result.isConfirmed) {
           // 用户点击了确认按钮后执行的操作
           // 可以在这里添加需要执行的代码
-          swal.close(); // 关闭弹窗
+          localStorage.setItem('hasBeenWelcomed', true); // 设置已经欢迎过的标志
         }
       });
     });

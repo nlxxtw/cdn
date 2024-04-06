@@ -20,15 +20,7 @@
                 <% } %>
             </div>
 
-            <div class="description center-align">
-                <% if (config.description && config.description.length > 0) { %>
-                    <!-- <%= config.description %> -->
-                    <%- '<span id="jinrishici-sentence">正在加载今日诗词...</span>' %>
-                <% } else { %>
-                    This is your root _config.yml 'description' value.
-                <% } %>
-            </div>
-            
+                
             
         </div>
     </div>
@@ -40,4 +32,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 
 </script>
-
+<div class="description center-align">
+    <% if (config.description && config.description.length > 0) { %>
+        <!-- <%= config.description %> -->
+        <%- '<span id="jinrishici-sentence">正在加载今日诗词...</span>' %>
+    <% } else { %>
+        This is your root _config.yml 'description' value.
+    <% } %>
+</div>
